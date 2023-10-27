@@ -29,7 +29,12 @@ Route::get('/blogs/{blog}', function($slug) {
         // abort(404);
         return redirect("/");
     }
-    $blog = file_get_contents($path);
+
+    $blog = cache()->remember("posts.$slug", now()->addMinutes(2), function() use ($path) {
+        var_dump("file get contents");
+        return file_get_contents($path);
+    });
+    
     return view('blog', [
         "blog" => $blog
     ]);
