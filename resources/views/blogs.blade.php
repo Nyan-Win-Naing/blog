@@ -9,20 +9,9 @@
 </head>
 
 <body>
-    <article>
-        <h1><a href="/blogs/first-blog">First Blog</a></h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil animi eos aspernatur nobis distinctio veniam repellendus ipsam rerum! Quasi, reiciendis praesentium molestiae at nobis quidem ipsam voluptas repellat delectus itaque. Odit minus natus dolor consectetur ipsam minima maxime animi debitis architecto voluptatem, consequatur saepe soluta et qui, distinctio repellendus aliquam exercitationem. Ad ab illum ut, debitis, harum nostrum a tenetur maxime reprehenderit iure doloribus qui esse quae tempora. Nesciunt commodi excepturi quaerat reiciendis placeat rem, eligendi necessitatibus expedita dignissimos molestias pariatur architecto numquam sapiente deserunt vero obcaecati reprehenderit assumenda, dolorum voluptas a quisquam. Et ratione recusandae, magnam quaerat consectetur eius.</p>
-    </article>
-
-    <article>
-        <h1><a href="/blogs/second-blog">Second Blog</a></h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil animi eos aspernatur nobis distinctio veniam repellendus ipsam rerum! Quasi, reiciendis praesentium molestiae at nobis quidem ipsam voluptas repellat delectus itaque. Odit minus natus dolor consectetur ipsam minima maxime animi debitis architecto voluptatem, consequatur saepe soluta et qui, distinctio repellendus aliquam exercitationem. Ad ab illum ut, debitis, harum nostrum a tenetur maxime reprehenderit iure doloribus qui esse quae tempora. Nesciunt commodi excepturi quaerat reiciendis placeat rem, eligendi necessitatibus expedita dignissimos molestias pariatur architecto numquam sapiente deserunt vero obcaecati reprehenderit assumenda, dolorum voluptas a quisquam. Et ratione recusandae, magnam quaerat consectetur eius.</p>
-    </article>
-
-    <article>
-        <h1><a href="/blogs/third-blog">Third Blog</a></h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil animi eos aspernatur nobis distinctio veniam repellendus ipsam rerum! Quasi, reiciendis praesentium molestiae at nobis quidem ipsam voluptas repellat delectus itaque. Odit minus natus dolor consectetur ipsam minima maxime animi debitis architecto voluptatem, consequatur saepe soluta et qui, distinctio repellendus aliquam exercitationem. Ad ab illum ut, debitis, harum nostrum a tenetur maxime reprehenderit iure doloribus qui esse quae tempora. Nesciunt commodi excepturi quaerat reiciendis placeat rem, eligendi necessitatibus expedita dignissimos molestias pariatur architecto numquam sapiente deserunt vero obcaecati reprehenderit assumenda, dolorum voluptas a quisquam. Et ratione recusandae, magnam quaerat consectetur eius.</p>
-    </article>
+    <?php foreach($blogs as $blog): ?>
+        <?= $blog; ?>
+    <?php endforeach; ?>
 </body>
 
 </html>

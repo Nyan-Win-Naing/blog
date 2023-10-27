@@ -2,8 +2,20 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\File;
+
 class Blog
 {
+
+    public static function all()
+    {
+        $files = File::files(resource_path("blogs"));
+        // dd($files[0]->getContents());
+        return array_map(function ($file) {
+            return $file->getContents();
+        }, $files);
+    }
+
     public static function find($slug)
     {
         // $path = __DIR__ . "/../resources/blogs/$slug.html";
