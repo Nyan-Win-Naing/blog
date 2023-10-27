@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use function PHPUnit\Framework\fileExists;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +21,16 @@ Route::get('/', function () {
     // return ["key" => "creativecoder"];
 });
 
-Route::get('/blog', function() {
-    return view('blog');
+Route::get('/blogs/{blog}', function($filename) {
+    // dd($filename);
+    $path=__DIR__."/../resources/blogs/$filename.html";
+    if(!file_exists($path)) {
+        // dd("hit");
+        // abort(404);
+        return redirect("/");
+    }
+    $blog = file_get_contents($path);
+    return view('blog', [
+        "blog" => $blog
+    ]);
 });
