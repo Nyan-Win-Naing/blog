@@ -21,9 +21,9 @@ Route::get('/', function () {
     // return ["key" => "creativecoder"];
 });
 
-Route::get('/blogs/{blog}', function($filename) {
-    // dd($filename);
-    $path=__DIR__."/../resources/blogs/$filename.html";
+Route::get('/blogs/{blog}', function($slug) {
+    // dd($slug);
+    $path=__DIR__."/../resources/blogs/$slug.html";
     if(!file_exists($path)) {
         // dd("hit");
         // abort(404);
@@ -33,4 +33,4 @@ Route::get('/blogs/{blog}', function($filename) {
     return view('blog', [
         "blog" => $blog
     ]);
-});
+})->where('blog', "[A-z\d\-_]+");
