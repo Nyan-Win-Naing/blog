@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-use function PHPUnit\Framework\fileExists;
+use App\Models\Blog;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,26 +15,14 @@ use function PHPUnit\Framework\fileExists;
 */
 
 Route::get('/', function () {
+    // dd(Blog::find("first-blog"));
     return view('blogs');
     // return "creativecoder";
     // return ["key" => "creativecoder"];
 });
 
 Route::get('/blogs/{blog}', function($slug) {
-    // dd($slug);
-    $path=__DIR__."/../resources/blogs/$slug.html";
-    if(!file_exists($path)) {
-        // dd("hit");
-        // abort(404);
-        return redirect("/");
-    }
-
-    $blog = cache()->remember("posts.$slug", now()->addMinutes(2), function() use ($path) {
-        var_dump("file get contents");
-        return file_get_contents($path);
-    });
-    
     return view('blog', [
-        "blog" => $blog
+        "blog" => Blog::find($slug)
     ]);
 })->where('blog', "[A-z\d\-_]+");
